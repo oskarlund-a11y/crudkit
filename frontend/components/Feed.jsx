@@ -1,9 +1,9 @@
 import * as React from "react";
-import moment from "moment-timezone";
 import DOMPurify from "dompurify";
 import CrudKitAPIClient from "../data/api";
 import {useEffect, useState} from "react";
 import {url} from "../utils/urls";
+import {formatTimestamp} from "../utils/time";
 import {Link} from "react-router-dom";
 
 import {useQuery, useQueryClient} from '@tanstack/react-query';
@@ -291,7 +291,7 @@ export function FeedItem({object, model, sendEmailAction, onReply, isReplyTarget
                     <Avatar name={whoName} src={whoImage} size={16} />
                     <span className="ck-act-who">{whoName}</span>
                     <span className="ck-act-what">{verb}</span>
-                    <span className="ck-act-when">·&nbsp;{moment(object.created_at).fromNow()}</span>
+                    <span className="ck-act-when">·&nbsp;{formatTimestamp(object.created_at)}</span>
                     {isAISuggestion && relatedObject?.confidence_score != null && (
                         <span className="ck-act-when">· confidence {(relatedObject.confidence_score * 100).toFixed(0)}%</span>
                     )}

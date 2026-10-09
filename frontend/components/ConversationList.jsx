@@ -2,6 +2,7 @@ import * as React from "react";
 import ReadOnlyField from "./ReadOnlyField.jsx";
 import {appConfig} from "../utils/appConfig";
 import {url} from "../utils/urls";
+import {formatTimestamp} from "../utils/time";
 import {useEffect, useState} from "react";
 import CrudKitAPIClient, {performAction} from "../data/api";
 import useWebSocket, {ReadyState} from "react-use-websocket";
@@ -285,7 +286,7 @@ function Messages({parentId}) {
                   )}
                 </div>
                 <div className="ck-bubble-meta">
-                  {senderName} · {moment(message.created_at).fromNow()}
+                  {senderName} · {formatTimestamp(message.created_at)}
                   {message.feedback_score === 1 && (
                     <span
                       className="ml-1 text-emerald-600"

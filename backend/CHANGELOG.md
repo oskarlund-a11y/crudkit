@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Feed items (emails, notes, activity) and chat messages show the exact time next to the
+  relative one ("3 hours ago · Oct 9, 2026 2:05 PM", Europe/Copenhagen like datetime fields).
+
 ## 0.6.3 (2026-10-08)
 
 - The assistant can work in forms. With a create or edit form open (page or inline-create
